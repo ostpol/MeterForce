@@ -2,6 +2,8 @@
 
 MeterForce is designed to guess the PIN of a SmartMeter by rolling through all possible PINs from 0000 to 9999. It runs on an Arduino Uno, the input is done via an LED at the optical interface of the meter. The timings in this example are set for an EFR SGM-C8-A620N.
 
+This project won't tell you the correct PIN. It just tries all possible PINs to unlock the meter, which usually only needs to be done once.
+
 ## Wiring Diagram
 
 | Component       | Arduino Pin | LCD Pin | LED Pin | Resistor |
