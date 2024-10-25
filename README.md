@@ -14,5 +14,5 @@ MeterForce is designed to guess the PIN of a SmartMeter by rolling through all p
 | I2C LCD GND     | GND         | GND     |         |          |
 | I2C LCD SDA     | A4          | SDA     |         |          |
 | I2C LCD SCL     | A5          | SCL     |         |          |
-| LED             | 12          |         | Anode   | (Calculator)[https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-led-series-resistor]  |
+| LED             | 12          |         | Anode   | [Calculator](https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-led-series-resistor)  |
 | LED GND         | GND         |         | Cathode |          |
