@@ -5,9 +5,9 @@
 LiquidCrystal_I2C lcd(0x3F, 16, 2); // Set the LCD I2C address
 
 const int ledPin = 12; // Pin number for the LED, we use 12 instead of 13 (internal LED) to prevent blinks during boot
-const int delayTime = 250; // Duration of each blink and pauses between blinks (250ms)
-const int pauseTime = 2500; // Pause time between digits (2500ms)
-const int firstDigitDelay = 3300; // Delay between initial blink and first digit (3300ms)
+const int delayTime = 175; // Duration of each blink and pauses between blinks
+const int pauseTime = 3000; // Pause time between digits
+const int firstDigitDelay = 3800 - pauseTime; // Delay between initial blink and first digit
 
 void setup() {
   // Initialize the LED pin as an output
@@ -46,7 +46,7 @@ void loop() {
     // Initial blink to start PIN input
     blinkDigit(1);
 
-    delay(firstDigitDelay); // wait 3.3 seconds before starting to blink the first digit
+    delay(firstDigitDelay); // wait for firstDigitDelay before starting to blink the first digit
 
     // Blink each digit
     for (int i = 0; i < 4; i++) {
@@ -69,17 +69,17 @@ void splitPin(int pin, int digits[]) {
 // Function to blink a digit
 void blinkDigit(int digit) {
   if (digit == 0) {
-    // Wait for 3 seconds if the digit is 0
+    // Wait for pauseTime if the digit is 0
     delay(pauseTime);
   } else {
     // Blink the LED (digit) times
     for (int i = 0; i < digit; i++) {
       digitalWrite(ledPin, HIGH); // Turn the LED on
-      delay(delayTime); // Wait for 250 milliseconds
+      delay(delayTime); // ON for delayTime
       digitalWrite(ledPin, LOW); // Turn the LED off
-      delay(delayTime); // Wait for 250 milliseconds
+      delay(delayTime); // OFF for delayTime
     }
-    // Pause for 2.5 seconds before the next digit
+    // Pause before next digit
     delay(pauseTime);
   }
 }
